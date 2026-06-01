@@ -1,0 +1,218 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
+
+const waLink = "https://wa.me/" + site.phone.replace(/\s+/g, '').replace('+', '');
+
+const horaires = [
+  { jour: 'Lundi', heures: 'Fermé' },
+  { jour: 'Mardi — Vendredi', heures: '08h00 — 19h00' },
+  { jour: 'Samedi', heures: '08h00 — 20h00' },
+  { jour: 'Dimanche', heures: '09h00 — 13h00' },
+];
+---
+<Base title={"Contact — " + site.seo_title} description={"Contactez " + site.company_name + " — " + site.address + " — " + site.phone} image={site.hero_image}>
+  <Header />
+
+  <!-- Hero page -->
+  <section class="bg-white py-16 lg:py-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 text-center reveal">
+      <div class="font-cursive text-[#EAB308] text-6xl leading-none mb-2">Parlons</div>
+      <h1 class="text-5xl lg:text-6xl font-black uppercase text-[#4A3219] leading-none tracking-tight">Ensemble</h1>
+      <p class="mt-6 max-w-xl mx-auto text-[#4A3219]/60 leading-relaxed">
+        Une question, une commande spéciale ou une envie ? On vous répond rapidement.
+      </p>
+    </div>
+  </section>
+
+  <!-- Wave -->
+  <div class="w-full overflow-hidden leading-none">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-14 block" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C360,60 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FFF8E7" />
+    </svg>
+  </div>
+
+  <!-- Contenu contact -->
+  <section class="bg-[#FFF8E7] py-20 lg:py-28">
+    <div class="max-w-5xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Colonne gauche : infos pratiques -->
+      <div class="flex flex-col gap-8">
+
+        <!-- Coordonnées -->
+        <div class="reveal">
+          <div class="font-cursive text-[#EAB308] text-4xl mb-1">Nos coordonnées</div>
+          <h2 class="text-3xl font-black uppercase text-[#4A3219]">Retrouvez-nous</h2>
+        </div>
+
+        <div class="flex flex-col gap-3 reveal">
+          <a href={"tel:" + site.phone}
+             class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-[#EAB308]/20 hover:border-[#EAB308] transition-colors">
+            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-[#EAB308]/10 text-[#EAB308] shrink-0">
+              <iconify-icon icon="solar:phone-linear" class="text-2xl"></iconify-icon>
+            </div>
+            <div>
+              <div class="text-xs text-[#4A3219]/50 font-medium uppercase tracking-wider mb-0.5">Téléphone</div>
+              <span class="font-semibold text-[#4A3219]">{site.phone}</span>
+            </div>
+          </a>
+
+          <a href={"mailto:" + site.email}
+             class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-[#EAB308]/20 hover:border-[#EAB308] transition-colors">
+            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-[#EAB308]/10 text-[#EAB308] shrink-0">
+              <iconify-icon icon="solar:letter-linear" class="text-2xl"></iconify-icon>
+            </div>
+            <div>
+              <div class="text-xs text-[#4A3219]/50 font-medium uppercase tracking-wider mb-0.5">Email</div>
+              <span class="font-semibold text-[#4A3219]">{site.email}</span>
+            </div>
+          </a>
+
+          <div class="flex items-center gap-4 bg-white rounded-2xl p-4 border border-[#EAB308]/20">
+            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-[#EAB308]/10 text-[#EAB308] shrink-0">
+              <iconify-icon icon="solar:map-point-linear" class="text-2xl"></iconify-icon>
+            </div>
+            <div>
+              <div class="text-xs text-[#4A3219]/50 font-medium uppercase tracking-wider mb-0.5">Adresse</div>
+              <span class="font-semibold text-[#4A3219]">{site.address}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Horaires -->
+        <div class="bg-white rounded-3xl p-6 border border-[#EAB308]/20 reveal">
+          <div class="font-cursive text-[#EAB308] text-3xl mb-4">Horaires</div>
+          <div class="flex flex-col divide-y divide-[#4A3219]/5">
+            {horaires.map((h) => (
+              <div class="flex items-center justify-between py-2.5">
+                <span class="text-sm text-[#4A3219]/70">{h.jour}</span>
+                <span class={`text-sm font-semibold ${h.heures === 'Fermé' ? 'text-red-400' : 'text-[#4A3219]'}`}>
+                  {h.heures}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- WhatsApp rapide -->
+        <div class="bg-[#4A3219] rounded-3xl p-6 flex flex-col gap-4 reveal">
+          <div class="font-cursive text-[#EAB308] text-3xl">Commande rapide</div>
+          <p class="text-white/70 text-sm leading-relaxed">
+            Passez directement votre commande via WhatsApp pour une réponse immédiate.
+          </p>
+          <a href={waLink}
+             target="_blank"
+             rel="noopener noreferrer"
+             class="flex items-center gap-2 bg-[#EAB308] hover:bg-[#ca9b07] text-white font-semibold px-6 py-3 rounded-full transition-colors w-fit">
+            <iconify-icon icon="mdi:whatsapp" class="text-xl"></iconify-icon>
+            Commander par WhatsApp
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Colonne droite : formulaire -->
+      <div class="bg-white rounded-3xl p-8 border border-[#EAB308]/20 shadow-sm reveal-right">
+        <div class="font-cursive text-[#EAB308] text-4xl mb-1">Écrivez-nous</div>
+        <h2 class="text-2xl font-black uppercase text-[#4A3219] mb-6">Formulaire de contact</h2>
+
+        <form
+          method="POST"
+          action={"https://contact.cmspace.app/submit?to=" + site.email}
+          class="flex flex-col gap-5"
+        >
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label for="prenom" class="text-sm font-semibold text-[#4A3219]">Prénom</label>
+              <input
+                type="text" id="prenom" name="prenom" required
+                placeholder="Votre prénom"
+                class="w-full border border-[#4A3219]/20 rounded-xl px-4 py-3 text-sm text-[#4A3219] placeholder-[#4A3219]/30 focus:outline-none focus:border-[#EAB308] transition-colors bg-[#FFF8E7]"
+              />
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <label for="nom" class="text-sm font-semibold text-[#4A3219]">Nom</label>
+              <input
+                type="text" id="nom" name="nom" required
+                placeholder="Votre nom"
+                class="w-full border border-[#4A3219]/20 rounded-xl px-4 py-3 text-sm text-[#4A3219] placeholder-[#4A3219]/30 focus:outline-none focus:border-[#EAB308] transition-colors bg-[#FFF8E7]"
+              />
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label for="email" class="text-sm font-semibold text-[#4A3219]">Email</label>
+            <input
+              type="email" id="email" name="email" required
+              placeholder="votre@email.fr"
+              class="w-full border border-[#4A3219]/20 rounded-xl px-4 py-3 text-sm text-[#4A3219] placeholder-[#4A3219]/30 focus:outline-none focus:border-[#EAB308] transition-colors bg-[#FFF8E7]"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label for="telephone" class="text-sm font-semibold text-[#4A3219]">
+              Téléphone <span class="text-[#4A3219]/40 font-normal">(facultatif)</span>
+            </label>
+            <input
+              type="tel" id="telephone" name="telephone"
+              placeholder="+33 6 00 00 00 00"
+              class="w-full border border-[#4A3219]/20 rounded-xl px-4 py-3 text-sm text-[#4A3219] placeholder-[#4A3219]/30 focus:outline-none focus:border-[#EAB308] transition-colors bg-[#FFF8E7]"
+            />
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label for="sujet" class="text-sm font-semibold text-[#4A3219]">Type de commande</label>
+            <select
+              id="sujet" name="sujet" required
+              class="w-full border border-[#4A3219]/20 rounded-xl px-4 py-3 text-sm text-[#4A3219] focus:outline-none focus:border-[#EAB308] transition-colors bg-[#FFF8E7] appearance-none"
+            >
+              <option value="" disabled selected>Choisissez un type</option>
+              <option value="gateau">Gâteau sur mesure</option>
+              <option value="tartelette">Tartelettes</option>
+              <option value="macarons">Macarons / Coffret</option>
+              <option value="livraison">Informations livraison</option>
+              <option value="autre">Autre demande</option>
+            </select>
+          </div>
+
+          <div class="flex flex-col gap-1.5">
+            <label for="message" class="text-sm font-semibold text-[#4A3219]">Message</label>
+            <textarea
+              id="message" name="message" required rows="4"
+              placeholder="Décrivez votre commande ou votre demande..."
+              class="w-full border border-[#4A3219]/20 rounded-xl px-4 py-3 text-sm text-[#4A3219] placeholder-[#4A3219]/30 focus:outline-none focus:border-[#EAB308] transition-colors bg-[#FFF8E7] resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-[#EAB308] hover:bg-[#ca9b07] text-white font-semibold py-3.5 rounded-full transition-colors shadow-md text-sm">
+            ENVOYER LE MESSAGE
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Google Maps embed -->
+  <section class="bg-white py-0">
+    <div class="w-full h-72 overflow-hidden">
+      <iframe
+        src={"https://maps.google.com/maps?q=" + encodeURIComponent(site.address) + "&output=embed&z=15"}
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title={"Localisation " + site.company_name}
+      ></iframe>
+    </div>
+  </section>
+
+  <Footer />
+
+</Base>

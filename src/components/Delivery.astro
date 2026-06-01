@@ -1,0 +1,59 @@
+---
+import site from '../data/site.json';
+const waLink = "https://wa.me/" + site.phone.replace(/\s+/g, '').replace('+', '');
+---
+<section class="bg-white py-20">
+  <div class="max-w-5xl mx-auto px-4">
+
+    <!-- Titre -->
+    <div class="text-center mb-12 reveal">
+      <div class="font-cursive text-[#EAB308] text-5xl mb-2">Pratique</div>
+      <h2 class="text-4xl font-black uppercase text-[#4A3219]">{site.delivery_title}</h2>
+    </div>
+
+    <!-- 2 cartes -->
+    <div class="grid md:grid-cols-2 gap-6 mb-10">
+
+      <!-- Livraison -->
+      <div class="bg-[#FFF8E7] rounded-3xl p-8 border border-[#EAB308]/20 flex flex-col gap-4 reveal reveal-d1">
+        <div class="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#EAB308]/10 text-[#EAB308]">
+          <iconify-icon icon="solar:delivery-linear" class="text-3xl"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-bold text-[#4A3219]">Livraison à Domicile</h3>
+        <p class="text-[#4A3219]/60 text-sm leading-relaxed">
+          Recevez vos créations directement chez vous, fraîches et soigneusement emballées dans nos boîtes signature.
+        </p>
+        <span class="inline-block bg-[#EAB308]/10 text-[#EAB308] font-semibold text-xs px-4 py-1.5 rounded-full w-fit">
+          {site.delivery_zone}
+        </span>
+      </div>
+
+      <!-- Retrait -->
+      <div class="bg-[#FFF8E7] rounded-3xl p-8 border border-[#EAB308]/20 flex flex-col gap-4 reveal reveal-d2">
+        <div class="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#EAB308]/10 text-[#EAB308]">
+          <iconify-icon icon="solar:shop-linear" class="text-3xl"></iconify-icon>
+        </div>
+        <h3 class="text-xl font-bold text-[#4A3219]">Retrait sur Place</h3>
+        <p class="text-[#4A3219]/60 text-sm leading-relaxed">
+          Venez chercher votre commande en boutique et profitez de l'ambiance chaleureuse de notre atelier artisanal.
+        </p>
+        <span class="inline-block bg-[#EAB308]/10 text-[#EAB308] font-semibold text-xs px-4 py-1.5 rounded-full w-fit">
+          {site.pickup_label}
+        </span>
+      </div>
+
+    </div>
+
+    <!-- CTA WhatsApp -->
+    <div class="flex justify-center reveal">
+      <a href={waLink}
+         target="_blank"
+         rel="noopener noreferrer"
+         class="flex items-center gap-3 bg-[#EAB308] hover:bg-[#ca9b07] text-white font-semibold px-8 py-4 rounded-full transition-colors shadow-lg text-lg">
+        <iconify-icon icon="mdi:whatsapp" class="text-2xl"></iconify-icon>
+        Commander par WhatsApp
+      </a>
+    </div>
+
+  </div>
+</section>

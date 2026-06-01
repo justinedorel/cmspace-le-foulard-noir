@@ -1,0 +1,140 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
+---
+<Base title={"Mentions Légales — " + site.seo_title} description={"Mentions légales de " + site.company_name + " — " + site.company_sub}>
+
+  <Header />
+
+  <!-- PAGE HERO -->
+  <section class="bg-white py-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <div class="font-cursive text-[#EAB308] text-5xl leading-none mb-2">Informations</div>
+      <h1 class="text-4xl lg:text-5xl font-black uppercase text-[#4A3219] leading-none tracking-tight">Mentions Légales</h1>
+    </div>
+  </section>
+
+  <!-- WAVE DIVIDER -->
+  <div class="w-full overflow-hidden leading-none">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-14 block" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C360,60 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FFF8E7" />
+    </svg>
+  </div>
+
+  <!-- CONTENU LÉGAL -->
+  <section class="bg-[#FFF8E7] py-16 lg:py-24">
+    <div class="max-w-3xl mx-auto px-4 flex flex-col gap-10">
+
+      <!-- Éditeur du site -->
+      <div class="bg-white rounded-3xl p-8 border border-[#EAB308]/20">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#EAB308]/10 text-[#EAB308]">
+            <iconify-icon icon="solar:buildings-linear" class="text-xl"></iconify-icon>
+          </div>
+          <h2 class="text-xl font-black uppercase text-[#4A3219]">Éditeur du site</h2>
+        </div>
+        <div class="flex flex-col gap-2 text-sm text-[#4A3219]/70 leading-relaxed">
+          <p><strong class="text-[#4A3219]">Dénomination sociale :</strong> {site.legal_name || site.company_name}</p>
+          <p><strong class="text-[#4A3219]">Forme juridique :</strong> {site.legal_status || "À compléter"}</p>
+          <p><strong class="text-[#4A3219]">SIRET :</strong> {site.siret || "À compléter"}</p>
+          <p><strong class="text-[#4A3219]">Adresse :</strong> {site.address}</p>
+          <p><strong class="text-[#4A3219]">Email :</strong> <a href={"mailto:" + site.email} class="text-[#EAB308] hover:underline">{site.email}</a></p>
+          <p><strong class="text-[#4A3219]">Téléphone :</strong> {site.phone}</p>
+        </div>
+      </div>
+
+      <!-- Hébergement -->
+      <div class="bg-white rounded-3xl p-8 border border-[#EAB308]/20">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#EAB308]/10 text-[#EAB308]">
+            <iconify-icon icon="solar:server-linear" class="text-xl"></iconify-icon>
+          </div>
+          <h2 class="text-xl font-black uppercase text-[#4A3219]">Hébergement</h2>
+        </div>
+        <div class="flex flex-col gap-2 text-sm text-[#4A3219]/70 leading-relaxed">
+          <p>Ce site est hébergé par <strong class="text-[#4A3219]">Cloudflare, Inc.</strong></p>
+          <p>101 Townsend St, San Francisco, CA 94107, États-Unis</p>
+          <p><a href="https://www.cloudflare.com" target="_blank" rel="noopener" class="text-[#EAB308] hover:underline">www.cloudflare.com</a></p>
+        </div>
+      </div>
+
+      <!-- Propriété intellectuelle -->
+      <div class="bg-white rounded-3xl p-8 border border-[#EAB308]/20">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#EAB308]/10 text-[#EAB308]">
+            <iconify-icon icon="solar:shield-linear" class="text-xl"></iconify-icon>
+          </div>
+          <h2 class="text-xl font-black uppercase text-[#4A3219]">Propriété intellectuelle</h2>
+        </div>
+        <p class="text-sm text-[#4A3219]/70 leading-relaxed">
+          L'ensemble des contenus présents sur ce site (textes, images, visuels, logos) sont la propriété exclusive de <strong class="text-[#4A3219]">{site.legal_name || site.company_name}</strong> ou de leurs auteurs respectifs.
+          Toute reproduction, distribution ou utilisation sans autorisation préalable est interdite.
+        </p>
+      </div>
+
+      <!-- Données personnelles -->
+      <div class="bg-white rounded-3xl p-8 border border-[#EAB308]/20">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#EAB308]/10 text-[#EAB308]">
+            <iconify-icon icon="solar:lock-linear" class="text-xl"></iconify-icon>
+          </div>
+          <h2 class="text-xl font-black uppercase text-[#4A3219]">Données personnelles</h2>
+        </div>
+        <div class="flex flex-col gap-3 text-sm text-[#4A3219]/70 leading-relaxed">
+          <p>
+            Les informations collectées via le formulaire de contact sont utilisées uniquement pour répondre à vos demandes.
+            Elles ne sont ni cédées ni vendues à des tiers.
+          </p>
+          <p>
+            Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés,
+            vous disposez d'un droit d'accès, de rectification et de suppression de vos données.
+          </p>
+          <p>
+            Pour exercer ces droits, contactez-nous à : <a href={"mailto:" + site.email} class="text-[#EAB308] hover:underline">{site.email}</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- Cookies -->
+      <div class="bg-white rounded-3xl p-8 border border-[#EAB308]/20">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#EAB308]/10 text-[#EAB308]">
+            <iconify-icon icon="solar:cookie-minimalistic-linear" class="text-xl"></iconify-icon>
+          </div>
+          <h2 class="text-xl font-black uppercase text-[#4A3219]">Cookies</h2>
+        </div>
+        <p class="text-sm text-[#4A3219]/70 leading-relaxed">
+          Ce site peut utiliser des cookies techniques nécessaires à son bon fonctionnement.
+          Aucun cookie publicitaire ou de traçage n'est déposé sans votre consentement.
+          Vous pouvez configurer votre navigateur pour refuser les cookies à tout moment.
+        </p>
+      </div>
+
+      <!-- Responsabilité -->
+      <div class="bg-white rounded-3xl p-8 border border-[#EAB308]/20">
+        <div class="flex items-center gap-3 mb-5">
+          <div class="flex items-center justify-center w-10 h-10 rounded-xl bg-[#EAB308]/10 text-[#EAB308]">
+            <iconify-icon icon="solar:info-circle-linear" class="text-xl"></iconify-icon>
+          </div>
+          <h2 class="text-xl font-black uppercase text-[#4A3219]">Limitation de responsabilité</h2>
+        </div>
+        <p class="text-sm text-[#4A3219]/70 leading-relaxed">
+          {site.legal_name || site.company_name} s'efforce de maintenir les informations de ce site à jour et exactes.
+          Cependant, nous ne pouvons garantir l'exactitude ou l'exhaustivité des informations publiées et déclinons toute responsabilité
+          pour les dommages directs ou indirects pouvant résulter de l'utilisation de ce site.
+        </p>
+      </div>
+
+      <!-- Date de mise à jour -->
+      <p class="text-center text-xs text-[#4A3219]/40">
+        Dernière mise à jour : {new Date().toLocaleDateString('fr-FR', { year: 'numeric', month: 'long', day: 'numeric' })}
+      </p>
+
+    </div>
+  </section>
+
+  <Footer />
+
+</Base>

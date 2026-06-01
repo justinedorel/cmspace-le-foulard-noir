@@ -1,0 +1,21 @@
+---
+import site from '../data/site.json';
+const waLink = "https://wa.me/" + site.phone.replace(/\s+/g, '').replace('+', '');
+---
+<section class="bg-[#4A3219] py-24 px-4">
+  <div class="max-w-3xl mx-auto text-center flex flex-col gap-6 reveal">
+    <div class="font-cursive text-[#EAB308] text-5xl leading-none">{site.cta_cursive}</div>
+    <h2 class="text-4xl lg:text-5xl font-black uppercase text-white leading-tight">{site.cta_title}</h2>
+    <p class="text-white/70 leading-relaxed max-w-xl mx-auto">{site.cta_text}</p>
+    <div class="flex flex-wrap justify-center gap-4 pt-2">
+      <a href="/services"
+         class="bg-[#EAB308] hover:bg-[#ca9b07] text-white font-semibold px-8 py-3 rounded-full transition-colors shadow-md">
+        VOIR NOS CRÉATIONS
+      </a>
+      <a href={"tel:" + site.phone}
+         class="border-2 border-[#EAB308] text-[#EAB308] hover:bg-[#EAB308] hover:text-white font-semibold px-8 py-3 rounded-full transition-colors">
+        NOUS APPELER
+      </a>
+    </div>
+  </div>
+</section>

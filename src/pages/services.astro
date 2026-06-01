@@ -1,0 +1,222 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Cta from '../components/Cta.astro';
+import site from '../data/site.json';
+
+const waLink = "https://wa.me/" + site.phone.replace(/\s+/g, '').replace('+', '');
+
+const categories = [
+  {
+    slug: 'gateaux',
+    cursive: 'Nos',
+    title: 'Gâteaux',
+    icon: 'solar:star-bold',
+    items: [
+      {
+        name: site.product2_cursive + ' ' + site.product2_title,
+        price: site.product2_price,
+        price_original: site.product2_price_original,
+        rating: site.product2_rating,
+        desc: site.product2_desc,
+        image: site.product2_image,
+      },
+      {
+        name: site.hero_cursive + ' ' + site.hero_title,
+        price: site.hero_price,
+        price_original: site.hero_price_original,
+        rating: site.hero_rating,
+        desc: site.hero_desc,
+        image: site.hero_image,
+      },
+      {
+        name: 'Fondant Chocolat',
+        price: '22€',
+        price_original: '30€',
+        rating: '4.9',
+        desc: "Un cœur coulant au chocolat noir intense, enveloppé d'une coque dorée. Servi tiède avec une quenelle de crème fraîche.",
+        image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=800&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    slug: 'tartelettes',
+    cursive: 'Nos',
+    title: 'Tartelettes',
+    icon: 'solar:sun-bold',
+    items: [
+      {
+        name: site.product1_cursive + ' ' + site.product1_title,
+        price: site.product1_price,
+        price_original: site.product1_price_original,
+        rating: site.product1_rating,
+        desc: site.product1_desc,
+        image: site.product1_image,
+      },
+      {
+        name: 'Tartelette Fraise',
+        price: '4€',
+        price_original: '7€',
+        rating: '4.7',
+        desc: 'Crème pâtissière légère à la vanille de Madagascar, garnie de fraises fraîches de saison sur pâte sablée maison.',
+        image: 'https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=800&auto=format&fit=crop',
+      },
+      {
+        name: 'Tartelette Caramel Beurre Salé',
+        price: '4.50€',
+        price_original: '8€',
+        rating: '4.8',
+        desc: 'Pâte sablée croustillante, ganache au caramel onctueux, éclats de fleur de sel de Guérande et pralin croustillant.',
+        image: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=800&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    slug: 'macarons',
+    cursive: 'Nos',
+    title: 'Macarons',
+    icon: 'solar:heart-bold',
+    items: [
+      {
+        name: site.product3_cursive + ' ' + site.product3_title,
+        price: site.product3_price,
+        price_original: site.product3_price_original,
+        rating: site.product3_rating,
+        desc: site.product3_desc,
+        image: site.product3_image,
+      },
+      {
+        name: 'Coffret Macarons Assortis',
+        price: '28€',
+        price_original: '38€',
+        rating: '5.0',
+        desc: 'Coffret de 12 macarons aux saveurs variées : vanille, chocolat, pistache, framboise, café et caramel beurre salé.',
+        image: 'https://images.unsplash.com/photo-1502741224143-90386d7f8c82?q=80&w=800&auto=format&fit=crop',
+      },
+    ],
+  },
+  {
+    slug: 'coffrets',
+    cursive: 'Nos',
+    title: 'Coffrets Cadeaux',
+    icon: 'solar:gift-linear',
+    items: [
+      {
+        name: 'Coffret Découverte',
+        price: '35€',
+        price_original: '50€',
+        rating: '5.0',
+        desc: 'Un assortiment de nos meilleures créations : 1 cake, 2 tartelettes et 6 macarons, emballés dans notre boîte kraft signature avec ruban doré.',
+        image: 'https://images.unsplash.com/photo-1488477304112-4944851de03d?q=80&w=800&auto=format&fit=crop',
+      },
+      {
+        name: 'Coffret Prestige',
+        price: '65€',
+        price_original: '85€',
+        rating: '5.0',
+        desc: 'Notre coffret haut de gamme : 1 gâteau entier, 6 tartelettes, 12 macarons et 1 tablette de chocolat artisanal. Parfait pour les grandes occasions.',
+        image: 'https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=800&auto=format&fit=crop',
+      },
+    ],
+  },
+];
+---
+<Base title={"Nos Créations — " + site.seo_title} description={"Découvrez toutes nos créations artisanales : gâteaux, tartelettes, macarons et coffrets cadeaux. " + site.seo_description} image={site.hero_image}>
+  <Header />
+
+  <!-- Hero page -->
+  <section class="bg-white py-16 lg:py-20 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 text-center reveal">
+      <div class="font-cursive text-[#EAB308] text-6xl leading-none mb-2">Nos</div>
+      <h1 class="text-5xl lg:text-6xl font-black uppercase text-[#4A3219] leading-none tracking-tight">Créations</h1>
+      <p class="mt-6 max-w-2xl mx-auto text-[#4A3219]/60 leading-relaxed">{site.tagline}</p>
+    </div>
+  </section>
+
+  <!-- Wave -->
+  <div class="w-full overflow-hidden leading-none">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-14 block" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C360,60 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FFF8E7" />
+    </svg>
+  </div>
+
+  <!-- Catégories -->
+  {categories.map((cat, catIdx) => (
+    <section id={cat.slug} class={catIdx % 2 === 0 ? "bg-[#FFF8E7] py-16" : "bg-white py-16"}>
+      <div class="max-w-7xl mx-auto px-4">
+
+        <!-- Titre catégorie -->
+        <div class="flex items-center gap-4 mb-10 reveal">
+          <div class="flex items-center justify-center w-12 h-12 rounded-2xl bg-[#EAB308]/10 text-[#EAB308] shrink-0">
+            <iconify-icon icon={cat.icon} class="text-2xl"></iconify-icon>
+          </div>
+          <div>
+            <div class="font-cursive text-[#EAB308] text-3xl leading-none">{cat.cursive}</div>
+            <h2 class="text-3xl font-black uppercase text-[#4A3219] leading-tight">{cat.title}</h2>
+          </div>
+        </div>
+
+        <!-- Produits -->
+        <div class="grid md:grid-cols-3 gap-6">
+          {cat.items.map((item, idx) => (
+            <div class={`bg-white rounded-3xl overflow-hidden border border-[#EAB308]/10 shadow-sm hover:shadow-md transition-shadow flex flex-col reveal reveal-d${idx + 1}`}>
+              <div class="relative h-48 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div class="absolute top-3 right-3 bg-[#EAB308] text-white font-bold text-sm px-3 py-1 rounded-full shadow">
+                  {item.price}
+                  {item.price_original && (
+                    <span class="text-white/60 text-xs line-through ml-1">{item.price_original}</span>
+                  )}
+                </div>
+              </div>
+              <div class="p-5 flex flex-col gap-3 flex-1">
+                <h3 class="font-bold text-[#4A3219] text-lg leading-tight">{item.name}</h3>
+                <div class="flex items-center gap-1">
+                  <div class="flex text-[#EAB308] text-sm">
+                    <iconify-icon icon="solar:star-bold"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold"></iconify-icon>
+                    <iconify-icon icon="solar:star-bold"></iconify-icon>
+                  </div>
+                  <span class="text-[#4A3219]/50 text-xs">{item.rating}/5</span>
+                </div>
+                <p class="text-[#4A3219]/60 text-sm leading-relaxed flex-1">{item.desc}</p>
+                <a href={waLink}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="mt-2 flex items-center justify-center gap-2 bg-[#EAB308] hover:bg-[#ca9b07] text-white font-semibold px-5 py-2.5 rounded-full transition-colors text-sm">
+                  <iconify-icon icon="mdi:whatsapp"></iconify-icon>
+                  Commander
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  ))}
+
+  <!-- Navigation catégories (sticky bottom) -->
+  <div class="sticky bottom-4 z-40 flex justify-center pointer-events-none">
+    <nav class="pointer-events-auto flex items-center gap-2 bg-white/90 backdrop-blur border border-[#4A3219]/10 shadow-lg rounded-full px-4 py-2 text-xs font-semibold text-[#4A3219]/70">
+      {categories.map((cat) => (
+        <a href={"#" + cat.slug}
+           class="hover:text-[#EAB308] transition-colors px-2 py-1 rounded-full hover:bg-[#FFF8E7]">
+          {cat.title}
+        </a>
+      ))}
+    </nav>
+  </div>
+
+  <Cta />
+  <Footer />
+
+</Base>

@@ -1,0 +1,92 @@
+---
+import site from '../data/site.json';
+
+function stars(rating: string) {
+  const n = parseInt(rating);
+  const full = Math.min(n, 5);
+  const empty = 5 - full;
+  return { full, empty };
+}
+
+const r1 = stars(site.review1_rating);
+const r2 = stars(site.review2_rating);
+const r3 = stars(site.review3_rating);
+---
+<section class="bg-[#FFF8E7] py-20">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Titre -->
+    <div class="text-center mb-12 reveal">
+      <div class="font-cursive text-[#EAB308] text-5xl mb-2">Avis</div>
+      <h2 class="text-4xl font-black uppercase text-[#4A3219]">Clients</h2>
+    </div>
+
+    <!-- 3 avis -->
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <!-- Avis 1 -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#EAB308]/10 flex flex-col gap-4 reveal reveal-d1">
+        <div class="flex text-[#EAB308]">
+          {Array.from({ length: r1.full }).map(() => (
+            <iconify-icon icon="solar:star-bold"></iconify-icon>
+          ))}
+          {Array.from({ length: r1.empty }).map(() => (
+            <iconify-icon icon="solar:star-outline"></iconify-icon>
+          ))}
+        </div>
+        <p class="text-[#4A3219]/70 italic leading-relaxed text-sm flex-1">"{site.review1_text}"</p>
+        <div class="flex items-center gap-3 pt-2 border-t border-[#4A3219]/5">
+          <img src={site.review1_image} alt={site.review1_name}
+               class="w-10 h-10 rounded-full object-cover border-2 border-[#EAB308]" loading="lazy" />
+          <div>
+            <div class="font-semibold text-[#4A3219] text-sm">{site.review1_name}</div>
+            <div class="text-xs text-[#4A3219]/50">{site.review1_role}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Avis 2 -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#EAB308]/10 flex flex-col gap-4 reveal reveal-d2">
+        <div class="flex text-[#EAB308]">
+          {Array.from({ length: r2.full }).map(() => (
+            <iconify-icon icon="solar:star-bold"></iconify-icon>
+          ))}
+          {Array.from({ length: r2.empty }).map(() => (
+            <iconify-icon icon="solar:star-outline"></iconify-icon>
+          ))}
+        </div>
+        <p class="text-[#4A3219]/70 italic leading-relaxed text-sm flex-1">"{site.review2_text}"</p>
+        <div class="flex items-center gap-3 pt-2 border-t border-[#4A3219]/5">
+          <img src={site.review2_image} alt={site.review2_name}
+               class="w-10 h-10 rounded-full object-cover border-2 border-[#EAB308]" loading="lazy" />
+          <div>
+            <div class="font-semibold text-[#4A3219] text-sm">{site.review2_name}</div>
+            <div class="text-xs text-[#4A3219]/50">{site.review2_role}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Avis 3 -->
+      <div class="bg-white rounded-3xl p-6 shadow-sm border border-[#EAB308]/10 flex flex-col gap-4 reveal reveal-d3">
+        <div class="flex text-[#EAB308]">
+          {Array.from({ length: r3.full }).map(() => (
+            <iconify-icon icon="solar:star-bold"></iconify-icon>
+          ))}
+          {Array.from({ length: r3.empty }).map(() => (
+            <iconify-icon icon="solar:star-outline"></iconify-icon>
+          ))}
+        </div>
+        <p class="text-[#4A3219]/70 italic leading-relaxed text-sm flex-1">"{site.review3_text}"</p>
+        <div class="flex items-center gap-3 pt-2 border-t border-[#4A3219]/5">
+          <img src={site.review3_image} alt={site.review3_name}
+               class="w-10 h-10 rounded-full object-cover border-2 border-[#EAB308]" loading="lazy" />
+          <div>
+            <div class="font-semibold text-[#4A3219] text-sm">{site.review3_name}</div>
+            <div class="text-xs text-[#4A3219]/50">{site.review3_role}</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

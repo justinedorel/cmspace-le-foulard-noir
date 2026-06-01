@@ -1,0 +1,46 @@
+---
+import site from '../data/site.json';
+---
+<section id="histoire" class="bg-white py-20 lg:py-32 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+
+    <!-- Image -->
+    <div class="relative flex justify-center reveal-left">
+      <div class="relative">
+        <div class="absolute -inset-8 bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none"></div>
+        <img
+          src={site.story_image}
+          alt={site.story_title}
+          class="relative w-full max-w-sm h-96 object-cover rounded-3xl border-8 border-[#4A3219]/10 rotate-[-2deg] shadow-2xl"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- Texte -->
+    <div class="flex flex-col gap-6 reveal-right">
+      <div>
+        <div class="font-cursive text-[#EAB308] text-5xl mb-1">{site.story_cursive}</div>
+        <h2 class="text-4xl font-black uppercase text-[#4A3219]">{site.story_title}</h2>
+      </div>
+
+      <p class="text-[#4A3219]/70 leading-relaxed">{site.story_text1}</p>
+      <p class="text-[#4A3219]/70 leading-relaxed">{site.story_text2}</p>
+
+      <!-- Fondateur -->
+      <div class="flex items-center gap-4 bg-[#FFF8E7] rounded-2xl p-4 border border-[#EAB308]/20">
+        <img
+          src={site.founder_image}
+          alt={site.founder_name}
+          class="w-14 h-14 rounded-full object-cover border-2 border-[#EAB308] shrink-0"
+          loading="lazy"
+        />
+        <div>
+          <div class="font-bold text-[#4A3219]">{site.founder_name}</div>
+          <div class="text-sm text-[#4A3219]/60">{site.founder_role}</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

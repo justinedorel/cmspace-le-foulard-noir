@@ -1,0 +1,123 @@
+---
+import site from '../data/site.json';
+---
+<section id="produits" class="bg-[#FFF8E7] pt-8 pb-32">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Titre section -->
+    <div class="text-center mb-28 reveal">
+      <div class="font-cursive text-[#EAB308] text-5xl mb-2">Nos</div>
+      <h2 class="text-4xl font-black uppercase text-[#4A3219]">Créations Phares</h2>
+    </div>
+
+    <!-- 3 cartes produits -->
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Produit 1 -->
+      <div class="relative pt-28 reveal reveal-d1">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-44 h-44 z-10">
+          <img
+            src={site.product1_image}
+            alt={site.product1_title}
+            class="w-full h-full object-cover rounded-3xl border-8 border-white shadow-xl rotate-[-3deg]"
+            loading="lazy"
+          />
+          <div class="absolute -top-3 -right-3 w-14 h-14 bg-[#EAB308] rounded-full flex flex-col items-center justify-center shadow-md">
+            <span class="text-white font-bold text-base leading-none">{site.product1_price}</span>
+            <span class="text-white/70 text-[10px] line-through leading-none">{site.product1_price_original}</span>
+          </div>
+        </div>
+        <div class="bg-[#4A3219] rounded-3xl p-6 pt-24 text-white h-full flex flex-col">
+          <div class="font-cursive text-[#EAB308] text-3xl mb-1">{site.product1_cursive}</div>
+          <div class="text-2xl font-black uppercase mb-3">{site.product1_title}</div>
+          <div class="flex items-center gap-1 mb-3">
+            <div class="flex text-[#EAB308] text-sm">
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-half-bold"></iconify-icon>
+            </div>
+            <span class="text-white/60 text-xs">{site.product1_rating}/5</span>
+          </div>
+          <p class="text-white/70 text-sm leading-relaxed mb-4 flex-1">{site.product1_desc}</p>
+          <a href="/contact"
+             class="inline-block bg-[#EAB308] hover:bg-[#ca9b07] text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-colors w-fit">
+            Commander
+          </a>
+        </div>
+      </div>
+
+      <!-- Produit 2 — surélevé -->
+      <div class="relative pt-28 md:-mt-6 reveal reveal-d2">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-44 h-44 z-10">
+          <img
+            src={site.product2_image}
+            alt={site.product2_title}
+            class="w-full h-full object-cover rounded-3xl border-8 border-white shadow-xl rotate-[2deg]"
+            loading="lazy"
+          />
+          <div class="absolute -top-3 -right-3 w-14 h-14 bg-[#4A3219] rounded-full flex flex-col items-center justify-center shadow-md">
+            <span class="text-white font-bold text-base leading-none">{site.product2_price}</span>
+            <span class="text-white/70 text-[10px] line-through leading-none">{site.product2_price_original}</span>
+          </div>
+        </div>
+        <div class="bg-[#EAB308] rounded-3xl p-6 pt-24 text-white shadow-xl h-full flex flex-col">
+          <div class="font-cursive text-white/80 text-3xl mb-1">{site.product2_cursive}</div>
+          <div class="text-2xl font-black uppercase mb-3">{site.product2_title}</div>
+          <div class="flex items-center gap-1 mb-3">
+            <div class="flex text-white text-sm">
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+            </div>
+            <span class="text-white/70 text-xs">{site.product2_rating}/5</span>
+          </div>
+          <p class="text-white/80 text-sm leading-relaxed mb-4 flex-1">{site.product2_desc}</p>
+          <a href="/contact"
+             class="inline-block bg-white hover:bg-[#FFF8E7] text-[#4A3219] text-sm font-semibold px-6 py-2.5 rounded-full transition-colors w-fit">
+            Commander
+          </a>
+        </div>
+      </div>
+
+      <!-- Produit 3 -->
+      <div class="relative pt-28 reveal reveal-d3">
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-44 h-44 z-10">
+          <img
+            src={site.product3_image}
+            alt={site.product3_title}
+            class="w-full h-full object-cover rounded-3xl border-8 border-white shadow-xl rotate-[3deg]"
+            loading="lazy"
+          />
+          <div class="absolute -top-3 -right-3 w-14 h-14 bg-[#EAB308] rounded-full flex flex-col items-center justify-center shadow-md">
+            <span class="text-white font-bold text-base leading-none">{site.product3_price}</span>
+            <span class="text-white/70 text-[10px] line-through leading-none">{site.product3_price_original}</span>
+          </div>
+        </div>
+        <div class="bg-[#4A3219] rounded-3xl p-6 pt-24 text-white h-full flex flex-col">
+          <div class="font-cursive text-[#EAB308] text-3xl mb-1">{site.product3_cursive}</div>
+          <div class="text-2xl font-black uppercase mb-3">{site.product3_title}</div>
+          <div class="flex items-center gap-1 mb-3">
+            <div class="flex text-[#EAB308] text-sm">
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-bold"></iconify-icon>
+              <iconify-icon icon="solar:star-outline"></iconify-icon>
+            </div>
+            <span class="text-white/60 text-xs">{site.product3_rating}/5</span>
+          </div>
+          <p class="text-white/70 text-sm leading-relaxed mb-4 flex-1">{site.product3_desc}</p>
+          <a href="/contact"
+             class="inline-block bg-[#EAB308] hover:bg-[#ca9b07] text-white text-sm font-semibold px-6 py-2.5 rounded-full transition-colors w-fit">
+            Commander
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

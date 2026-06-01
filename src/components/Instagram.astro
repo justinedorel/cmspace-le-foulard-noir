@@ -1,0 +1,62 @@
+---
+import site from '../data/site.json';
+
+const photos = [
+  { src: "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=400&auto=format&fit=crop", likes: 248, comments: 14 },
+  { src: "https://images.unsplash.com/photo-1488477304112-4944851de03d?q=80&w=400&auto=format&fit=crop", likes: 189, comments: 9 },
+  { src: "https://images.unsplash.com/photo-1519869325930-281384150729?q=80&w=400&auto=format&fit=crop", likes: 312, comments: 22 },
+  { src: "https://images.unsplash.com/photo-1502741224143-90386d7f8c82?q=80&w=400&auto=format&fit=crop", likes: 415, comments: 31 },
+  { src: "https://images.unsplash.com/photo-1571115177098-24ec42ed204d?q=80&w=400&auto=format&fit=crop", likes: 276, comments: 18 },
+];
+---
+<section class="bg-white py-20">
+  <div class="max-w-7xl mx-auto px-4">
+
+    <!-- Titre -->
+    <div class="text-center mb-10 reveal">
+      <div class="font-cursive text-[#EAB308] text-5xl mb-2">Suivez-nous</div>
+      <h2 class="text-4xl font-black uppercase text-[#4A3219]">Sur Instagram</h2>
+      <p class="mt-2 text-[#4A3219]/50 font-medium">{site.instagram_handle}</p>
+    </div>
+
+    <!-- Grille 5 photos -->
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 reveal">
+      {photos.map((photo, i) => (
+        <div class="group relative overflow-hidden rounded-2xl aspect-square">
+          <img
+            src={photo.src}
+            alt={`Instagram ${i + 1}`}
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-[#4A3219]/0 group-hover:bg-[#4A3219]/60 transition-colors flex items-center justify-center rounded-2xl">
+            <div class="opacity-0 group-hover:opacity-100 transition-opacity flex gap-4 text-white text-sm font-semibold">
+              <span class="flex items-center gap-1">
+                <iconify-icon icon="solar:heart-bold"></iconify-icon>
+                {photo.likes}
+              </span>
+              <span class="flex items-center gap-1">
+                <iconify-icon icon="solar:chat-round-bold"></iconify-icon>
+                {photo.comments}
+              </span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Lien Instagram -->
+    {site.social_instagram && site.social_instagram !== '#' && (
+      <div class="flex justify-center mt-8">
+        <a href={site.social_instagram}
+           target="_blank"
+           rel="noopener noreferrer"
+           class="flex items-center gap-2 border-2 border-[#4A3219]/20 text-[#4A3219] hover:border-[#EAB308] hover:text-[#EAB308] font-semibold px-6 py-2.5 rounded-full transition-colors text-sm">
+          <iconify-icon icon="mdi:instagram"></iconify-icon>
+          Voir sur Instagram
+        </a>
+      </div>
+    )}
+
+  </div>
+</section>

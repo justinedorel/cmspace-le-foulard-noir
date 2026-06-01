@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
+---
+<Base title={"Merci ! — " + site.seo_title} description={site.seo_description}>
+
+  <Header />
+
+  <!-- PAGE MERCI -->
+  <section class="bg-white py-24 lg:py-36 overflow-hidden">
+    <div class="max-w-2xl mx-auto px-4 text-center flex flex-col items-center gap-8">
+
+      <!-- Icône de confirmation -->
+      <div class="w-24 h-24 bg-[#EAB308]/10 rounded-full flex items-center justify-center">
+        <iconify-icon icon="solar:check-circle-bold" class="text-[#EAB308] text-5xl"></iconify-icon>
+      </div>
+
+      <!-- Titre -->
+      <div>
+        <div class="font-cursive text-[#EAB308] text-6xl leading-none mb-2">Merci !</div>
+        <h1 class="text-4xl lg:text-5xl font-black uppercase text-[#4A3219] leading-tight">Message envoyé</h1>
+      </div>
+
+      <!-- Message -->
+      <div class="bg-[#FFF8E7] rounded-3xl p-8 border border-[#EAB308]/20 w-full">
+        <p class="text-[#4A3219]/70 leading-relaxed text-base">
+          Votre message a bien été transmis à <strong class="text-[#4A3219]">{site.company_name}</strong>.
+          Nous vous répondrons dans les plus brefs délais à l'adresse email que vous avez indiquée.
+        </p>
+      </div>
+
+      <!-- Contact rapide -->
+      <div class="flex flex-col sm:flex-row gap-4 w-full">
+        <a
+          href={"https://wa.me/" + site.phone.replace(/\s+/g, '').replace('+', '')}
+          class="flex-1 flex items-center justify-center gap-2 bg-[#EAB308] hover:bg-[#ca9b07] text-white font-semibold px-6 py-3.5 rounded-full transition-colors shadow-md"
+        >
+          <iconify-icon icon="mdi:whatsapp" class="text-xl"></iconify-icon>
+          Commander par WhatsApp
+        </a>
+        <a
+          href="/"
+          class="flex-1 flex items-center justify-center border-2 border-[#4A3219] text-[#4A3219] hover:bg-[#4A3219] hover:text-white font-semibold px-6 py-3.5 rounded-full transition-colors"
+        >
+          Retour à l'accueil
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WAVE DIVIDER -->
+  <div class="w-full overflow-hidden leading-none">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-14 block" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C360,60 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FFF8E7" />
+    </svg>
+  </div>
+
+  <!-- SUGGESTION PRODUITS -->
+  <section class="bg-[#FFF8E7] py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-10">
+        <div class="font-cursive text-[#EAB308] text-4xl mb-2">En attendant</div>
+        <h2 class="text-3xl font-black uppercase text-[#4A3219]">Découvrez nos créations</h2>
+      </div>
+      <div class="flex justify-center">
+        <a
+          href="/services"
+          class="bg-[#4A3219] hover:bg-[#3a2714] text-white font-semibold px-10 py-3.5 rounded-full transition-colors shadow-md"
+        >
+          VOIR LA CARTE
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+</Base>

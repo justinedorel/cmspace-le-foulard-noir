@@ -1,0 +1,70 @@
+---
+import site from '../data/site.json';
+---
+<section class="bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+    <!-- Image -->
+    <div class="relative flex justify-center reveal-left">
+      <div class="relative w-full max-w-md">
+        <img
+          src={site.hero_image}
+          alt={site.hero_title}
+          class="hero-bg w-full h-80 lg:h-[480px] object-cover rounded-3xl border-8 border-[#4A3219] rotate-[-2deg] shadow-2xl"
+          loading="eager"
+        />
+        <!-- Badge prix -->
+        <div class="absolute -top-6 -right-4 lg:-right-8 w-24 h-24 bg-[#EAB308] rounded-full flex flex-col items-center justify-center shadow-lg rotate-[6deg] z-10">
+          <span class="text-white font-bold text-xl leading-none">{site.hero_price}</span>
+          <span class="text-white/70 text-xs line-through">{site.hero_price_original}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Texte -->
+    <div class="flex flex-col gap-6 reveal-right">
+      <div>
+        <div class="font-cursive text-[#EAB308] text-6xl leading-none mb-1">{site.hero_cursive}</div>
+        <h1 class="text-6xl lg:text-7xl font-black uppercase text-[#4A3219] leading-none tracking-tight">{site.hero_title}</h1>
+      </div>
+
+      <!-- Rating -->
+      <div class="flex items-center gap-2">
+        <div class="flex text-[#EAB308]">
+          <iconify-icon icon="solar:star-bold"></iconify-icon>
+          <iconify-icon icon="solar:star-bold"></iconify-icon>
+          <iconify-icon icon="solar:star-bold"></iconify-icon>
+          <iconify-icon icon="solar:star-bold"></iconify-icon>
+          <iconify-icon icon="solar:star-half-bold"></iconify-icon>
+        </div>
+        <span class="text-sm font-semibold text-[#4A3219]">{site.hero_rating}/5</span>
+        <span class="text-sm text-[#4A3219]/50">— {site.hero_reviews}</span>
+      </div>
+
+      <!-- Description -->
+      <div class="bg-[#FFF8E7] rounded-2xl p-5 border border-[#EAB308]/20">
+        <p class="text-[#4A3219]/80 leading-relaxed text-sm">{site.hero_desc}</p>
+      </div>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-3">
+        <a href="/services"
+           class="bg-[#EAB308] hover:bg-[#ca9b07] text-white font-semibold px-8 py-3 rounded-full transition-colors shadow-md">
+          COMMANDER
+        </a>
+        <a href="#histoire"
+           class="border-2 border-[#4A3219] text-[#4A3219] hover:bg-[#4A3219] hover:text-white font-semibold px-8 py-3 rounded-full transition-colors">
+          DÉCOUVRIR
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Wave divider -->
+<div class="w-full overflow-hidden leading-none">
+  <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-14 block" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,0 C360,60 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FFF8E7" />
+  </svg>
+</div>

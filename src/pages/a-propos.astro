@@ -1,0 +1,175 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Gallery from '../components/Gallery.astro';
+import Cta from '../components/Cta.astro';
+import Footer from '../components/Footer.astro';
+import site from '../data/site.json';
+
+const values = [
+  {
+    icon: 'solar:heart-linear',
+    title: 'Passion Artisanale',
+    desc: 'Chaque création est façonnée à la main avec soin et générosité, dans le respect des traditions pâtissières françaises transmises de génération en génération.',
+  },
+  {
+    icon: 'solar:leaf-linear',
+    title: 'Ingrédients Locaux',
+    desc: 'Nous sélectionnons minutieusement des ingrédients frais et locaux — farine bio, beurre de Normandie, fruits de saison — pour une qualité incomparable.',
+  },
+  {
+    icon: 'solar:star-linear',
+    title: 'Sur Mesure',
+    desc: 'Chaque commande est unique. Anniversaire, mariage, événement d\'entreprise : nous créons la pièce qui correspondra exactement à votre vision.',
+  },
+];
+---
+<Base title={"Notre Histoire — " + site.seo_title} description={"Découvrez l'histoire de " + site.company_name + ", " + site.company_sub + ". " + site.story_text1} image={site.story_image}>
+  <Header />
+
+  <!-- Hero page -->
+  <section class="bg-white py-16 lg:py-24 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 text-center reveal">
+      <div class="font-cursive text-[#EAB308] text-6xl leading-none mb-2">{site.story_cursive}</div>
+      <h1 class="text-5xl lg:text-6xl font-black uppercase text-[#4A3219] leading-none tracking-tight">{site.story_title}</h1>
+      <p class="mt-6 max-w-xl mx-auto text-[#4A3219]/60 leading-relaxed">{site.tagline}</p>
+    </div>
+  </section>
+
+  <!-- Wave -->
+  <div class="w-full overflow-hidden leading-none">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-14 block" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,0 C360,60 1080,0 1440,60 L1440,60 L0,60 Z" fill="#FFF8E7" />
+    </svg>
+  </div>
+
+  <!-- Histoire longue -->
+  <section class="bg-[#FFF8E7] py-20 lg:py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Image -->
+      <div class="relative flex justify-center reveal-left">
+        <div class="relative">
+          <div class="absolute -inset-8 bg-[#EAB308]/10 rounded-full blur-3xl pointer-events-none"></div>
+          <img
+            src={site.story_image}
+            alt={site.story_title}
+            class="relative w-full max-w-sm h-96 object-cover rounded-3xl border-8 border-[#4A3219]/10 rotate-[-2deg] shadow-2xl"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Texte -->
+      <div class="flex flex-col gap-6 reveal-right">
+        <div>
+          <div class="font-cursive text-[#EAB308] text-5xl mb-1">{site.story_cursive}</div>
+          <h2 class="text-4xl font-black uppercase text-[#4A3219]">{site.story_title}</h2>
+        </div>
+        <p class="text-[#4A3219]/70 leading-relaxed">{site.story_text1}</p>
+        <p class="text-[#4A3219]/70 leading-relaxed">{site.story_text2}</p>
+        <p class="text-[#4A3219]/70 leading-relaxed">
+          Aujourd'hui, notre maison accueille chaque jour des gourmands fidèles et de nouvelles têtes curieuses, attirées par les effluves qui s'échappent de l'atelier. Notre équipe partage cette même passion : créer des émotions gustatives qui perdurent bien au-delà de la dernière bouchée.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fondateur en détail -->
+  <section class="bg-white py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="flex flex-col items-center text-center gap-6 reveal">
+          <div class="relative">
+            <div class="absolute -inset-4 bg-[#EAB308]/10 rounded-full blur-2xl pointer-events-none"></div>
+            <img
+              src={site.founder_image}
+              alt={site.founder_name}
+              class="relative w-48 h-48 rounded-full object-cover border-4 border-[#EAB308] shadow-xl"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <div class="font-cursive text-[#EAB308] text-4xl">{site.founder_name}</div>
+            <div class="text-[#4A3219]/60 font-medium">{site.founder_role}</div>
+          </div>
+        </div>
+        <div class="flex flex-col gap-5 reveal-right">
+          <div>
+            <div class="font-cursive text-[#EAB308] text-4xl mb-1">Rencontrez</div>
+            <h2 class="text-3xl font-black uppercase text-[#4A3219]">La Fondatrice</h2>
+          </div>
+          <p class="text-[#4A3219]/70 leading-relaxed">
+            Formée dans les meilleures maisons parisiennes, {site.founder_name} a décidé de mettre son talent au service de sa clientèle locale. Après 5 ans en tant que cheffe pâtissière dans un palace parisien, elle a fondé {site.company_name} avec une conviction : l'excellence artisanale doit être accessible à tous.
+          </p>
+          <p class="text-[#4A3219]/70 leading-relaxed">
+            Son approche est simple — des ingrédients irréprochables, des recettes travaillées, et une attention portée à chaque détail. C'est cette exigence qui a forgé la réputation de la maison {site.company_name}.
+          </p>
+          <div class="flex items-center gap-4 bg-[#FFF8E7] rounded-2xl p-4 border border-[#EAB308]/20">
+            <iconify-icon icon="solar:cup-hot-bold" class="text-[#EAB308] text-3xl shrink-0"></iconify-icon>
+            <p class="text-[#4A3219]/70 text-sm italic">"La pâtisserie, c'est de l'amour rendu comestible."</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo atelier -->
+  <section class="bg-[#4A3219] py-20 overflow-hidden relative">
+    <div class="absolute inset-0 opacity-20">
+      <img
+        src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?q=80&w=1600&auto=format&fit=crop"
+        alt="Atelier"
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
+    <div class="relative max-w-5xl mx-auto px-4 text-center text-white reveal">
+      <div class="font-cursive text-[#EAB308] text-5xl mb-2">Dans nos</div>
+      <h2 class="text-4xl font-black uppercase leading-tight mb-6">Ateliers & Cuisines</h2>
+      <p class="text-white/70 max-w-2xl mx-auto leading-relaxed">
+        Chaque matin dès 4h, notre équipe prend place dans l'atelier pour façonner, cuire et dresser les créations du jour. Tout est préparé le jour même — aucune surgélation, aucun conservateur. La fraîcheur est notre engagement quotidien.
+      </p>
+      <div class="mt-10 grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+        <div class="flex flex-col items-center gap-2">
+          <div class="text-4xl font-black text-[#EAB308]"><span class="stat-counter" data-target="14" data-suffix="ans"></span></div>
+          <div class="text-white/60 text-sm">d'expérience</div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="text-4xl font-black text-[#EAB308]"><span class="stat-counter" data-target="843" data-suffix="+"></span></div>
+          <div class="text-white/60 text-sm">avis 5 étoiles</div>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <div class="text-4xl font-black text-[#EAB308]"><span class="stat-counter" data-target="100" data-suffix="%"></span></div>
+          <div class="text-white/60 text-sm">artisanal</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Valeurs -->
+  <section class="bg-[#FFF8E7] py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <div class="text-center mb-12 reveal">
+        <div class="font-cursive text-[#EAB308] text-5xl mb-2">Ce qui nous</div>
+        <h2 class="text-4xl font-black uppercase text-[#4A3219]">Anime</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {values.map((v, i) => (
+          <div class={`bg-white rounded-3xl p-8 border border-[#EAB308]/20 flex flex-col gap-4 reveal reveal-d${i + 1}`}>
+            <div class="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#EAB308]/10 text-[#EAB308]">
+              <iconify-icon icon={v.icon} class="text-3xl"></iconify-icon>
+            </div>
+            <h3 class="text-xl font-bold text-[#4A3219]">{v.title}</h3>
+            <p class="text-[#4A3219]/60 text-sm leading-relaxed">{v.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Gallery />
+  <Cta />
+  <Footer />
+
+</Base>
